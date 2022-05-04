@@ -9,6 +9,8 @@ def add(list_A,k):
                 return True 
     return False
             
-list_A=[10,15,3,7]
-k=17
+list_A=list(map(int,input("List: ").split()))
+print(List_A)
+k=int(input("Enter a Sum value"))
+print(k)
 print(add(list_A,k))
