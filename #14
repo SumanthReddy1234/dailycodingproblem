@@ -23,8 +23,8 @@ def balancedBrackets(string):
                 stack.pop()
 								
     if len(stack) == 0:
-		    return	True
-    return	False
+    	return True
+    return False
 
 
 string=input()
