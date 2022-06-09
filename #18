@@ -1,0 +1,49 @@
+"""
+29 .Run-length encoding is a fast and simple method of encoding strings.
+The basic idea is to represent repeated successive characters as a single count and character. For example, 
+the string "AAAABBBCCDAA" would be encoded as "4A3B2C1D2A".
+
+Implement run-length encoding and decoding. You can assume the string to be encoded have no digits and consists solely of alphabetic characters. 
+You can assume the string to be decoded is valid.
+"""
+
+
+def encoding(string):
+    encoded_string = ""
+    prev_char = string[0]
+    count = 0
+    
+    for char in string:
+        if char != prev_char:
+            encoded_string += str(count) + prev_char
+            prev_char = char
+            count = 1
+        else:
+            count += 1
+    encoded_string += str(count) + prev_char
+    return encoded_string
+
+def decoding(string):
+    decoded_string = ""
+    char_frequency = 0
+
+    for char in string:
+        if char.isdigit():
+            char_frequency = char_frequency * 10 + int(char)
+        else:
+            decoded_string += char * char_frequency
+            char_frequency = 0
+    return decoded_string
+
+
+print(encoding("AAAABBBCCDAA"))
+print(decoding("4A3B2C1D2A"))
+
+
+
+
+
+
+
+
+
