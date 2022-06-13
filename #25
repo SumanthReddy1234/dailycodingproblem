@@ -1,0 +1,35 @@
+"""
+Finding the length of the linkedlist.
+"""
+class Node:
+
+  def __init__(self,data):
+    self.data=data
+    self.next=None
+
+class Linkedlist:
+
+  def __init__(self):
+    self.head=None
+
+  def push(self,new_data):
+    new_node=Node(new_data)
+    new_node.next=self.head
+    self.head=new_node
+
+  def get_count(self):
+    new=self.head
+    c=0
+    while new :
+      c+=1
+      new=new.next
+    return c
+
+
+
+li=Linkedlist()
+li.push(5)
+li.push(4)
+li.push(3)
+li.push(2)
+li.get_count()
