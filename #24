@@ -1,0 +1,67 @@
+"""
+write a programmic logic for deleting a node from the linkedlist.
+
+"""
+class Node:
+
+  def __init__(self,data):
+    self.data=data
+    self.next=None
+
+class Linkedlist:
+
+  def __init__(self):
+    self.head=None
+
+  def push(self,new_data):
+    new_node=Node(new_data)
+    new_node.next=self.head
+    self.head=new_node
+
+  def deleteNode(self, key):
+      # Store head node
+      temp = self.head
+  
+      # If head node itself holds the key to be deleted
+      if (temp is not None):
+          if (temp.data == key):
+              self.head = temp.next
+              temp = None
+              return
+  
+      # Search for the key to be deleted, keep track of the
+      # previous node as we need to change 'prev.next'
+      while(temp is not None):
+          if temp.data == key:
+              break
+          prev = temp
+          temp = temp.next
+  
+      # if key was not present in linked list
+      if(temp == None):
+          return
+  
+      # Unlink the node from linked list
+      prev.next = temp.next
+  
+      temp = None
+
+  def print_list(self):
+    new=self.head
+    while new:
+      print(f"{new.data} --->",end=" ")
+      new=new.next
+
+
+ll=Linkedlist()
+ll.push(0)
+ll.push(1)
+ll.push(2)
+
+print ("Created Linked List: ")
+ll.print_list()
+
+ll.deleteNode(1)
+print ("\nLinked List after Deletion of 1:")
+ll.print_list()
+
